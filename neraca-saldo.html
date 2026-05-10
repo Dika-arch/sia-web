@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neraca Saldo · Sistem Informasi Akuntansi</title>
+  <meta name="description" content="Web app Sistem Informasi Akuntansi interaktif multi halaman untuk GitHub Pages" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="data.js"></script>
+  <script defer src="firebase-config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body data-page="neraca-saldo">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-scroll">
+        <div class="brand-box">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 20V8" />
+              <path d="M10 20V4" />
+              <path d="M16 20v-6" />
+              <path d="M22 20H2" />
+            </svg>
+          </div>
+          <div>
+            <h1>SIA</h1>
+            <p>Sistem Akuntansi</p>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link" data-page-link="dashboard">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /></svg></span>
+            Dashboard
+          </a>
+          <a href="transaksi.html" class="nav-link" data-page-link="transaksi">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" /><path d="M14 3v6h6" /><path d="M9 13h6" /><path d="M9 17h6" /></svg></span>
+            Transaksi
+          </a>
+
+          <a href="operasional.html" class="nav-link" data-page-link="operasional">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18"/><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/><path d="M6 7v12h12V7"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></span>
+            Operasional POS
+          </a>
+          <a href="jurnal-umum.html" class="nav-link" data-page-link="jurnal-umum">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z" /><path d="M8 5v14" /><path d="M12 9h6" /><path d="M12 15h6" /></svg></span>
+            Jurnal Umum
+          </a>
+          <a href="buku-besar.html" class="nav-link" data-page-link="buku-besar">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5z" /><path d="M9 7h6" /><path d="M9 12h6" /><path d="M9 17h6" /></svg></span>
+            Buku Besar
+          </a>
+          <a href="neraca-saldo.html" class="nav-link" data-page-link="neraca-saldo">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18" /><path d="M6 7h12" /><path d="M4 21h16" /><path d="M8 7c0 2-2 4-2 7s2 5 2 7" /><path d="M16 7c0 2 2 4 2 7s-2 5-2 7" /></svg></span>
+            Neraca Saldo
+          </a>
+          <a href="laba-rugi.html" class="nav-link" data-page-link="laba-rugi">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 17 10 11l4 4 6-8" /><path d="M20 7v4h-4" /></svg></span>
+            Laba Rugi
+          </a>
+          <a href="perubahan-modal.html" class="nav-link" data-page-link="perubahan-modal">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 8 8" /><path d="M12 4v8h8" /></svg></span>
+            Perubahan Modal
+          </a>
+          <a href="jurnal-penutup.html" class="nav-link" data-page-link="jurnal-penutup">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z" /><path d="M8 8h8" /><path d="M8 12h8" /><path d="M8 16h6" /></svg></span>
+            Jurnal Penutup
+          </a>
+          <a href="neraca-saldo-penutup.html" class="nav-link" data-page-link="neraca-saldo-penutup">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 20h16" /><path d="M7 8h10" /><path d="M12 4v16" /><path d="M7 12h10" /></svg></span>
+            Neraca Saldo Penutup
+          </a>
+          <a href="neraca.html" class="nav-link" data-page-link="neraca">
+            <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 20V10" /><path d="M10 20V4" /><path d="M16 20v-7" /><path d="M22 20H2" /></svg></span>
+            Neraca
+          </a>
+        </nav>
+
+        <div class="sidebar-actions">
+          <label class="side-action" for="import-file">
+            <span class="nav-icon small-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3v12" /><path d="m7 8 5-5 5 5" /><path d="M5 21h14" /></svg>
+            </span>
+            Import Data
+          </label>
+          <button class="side-action" id="btn-export-side" type="button">
+            <span class="nav-icon small-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3v12" /><path d="m17 10-5 5-5-5" /><path d="M5 21h14" /></svg>
+            </span>
+            Export Data
+          </button>
+          <button class="side-action danger" id="btn-reset-side" type="button">
+            <span class="nav-icon small-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 6h18" /><path d="M8 6V4h8v2" /><path d="m9 11 .5 6" /><path d="m15 11-.5 6" /><path d="M6 6l1 14h10l1-14" /></svg>
+            </span>
+            Reset Data
+          </button>
+          <p class="reset-warning">Warning: reset data akan menghapus seluruh transaksi, jurnal, dan laporan lokal di browser ini.</p>
+          <input id="import-file" type="file" accept="application/json" hidden />
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <p>Version <span id="app-version">1.5.1</span></p>
+        <span>© 2026 SIA</span>
+      </div>
+    </aside>
+
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <div class="content-shell">
+      <header class="topbar">
+        <div class="topbar-title">
+          <h2>Neraca Saldo</h2>
+          <p>Periksa saldo debit dan kredit sebelum penutupan.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Buka menu">☰</button>
+          <label class="search-box global-search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            <input id="global-search" type="search" placeholder="Cari transaksi..." />
+          </label>
+          <button class="top-btn export-btn" id="btn-export-top" type="button">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12" /><path d="m17 10-5 5-5-5" /><path d="M5 21h14" /></svg>
+            Export
+          </button>
+          <div class="auth-toolbar">
+            <div class="auth-user-chip hidden" id="auth-user-chip">
+              <img id="auth-user-avatar" alt="Foto profil" />
+              <div>
+                <strong id="auth-user-name">Mode Lokal</strong>
+                <span id="auth-user-email">Belum login</span>
+              </div>
+            </div>
+            <div class="sync-pill hidden" id="sync-status-pill" data-mode="local" title="Status sinkronisasi cloud">
+              <span class="sync-dot"></span>
+              <span id="sync-status-text">Lokal</span>
+            </div>
+            <button class="top-btn ghost-btn hidden" id="btn-logout-top" type="button">Keluar</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <section class="section-block">
+          <div class="section-intro compact-meta">
+            <div>
+              <span class="meta-chip">Neraca Saldo</span>
+              <h3 class="section-title">Ringkasan Saldo Akun</h3>
+              <div class="meta-inline">
+                <span id="meta-company">-</span>
+                <span id="meta-period">-</span>
+                <span><strong id="meta-transaction-count">0</strong> transaksi</span>
+              </div>
+              <p class="meta-note" id="meta-source-note">Catatan sumber belum diisi.</p>
+            </div>
+          </div>
+        </section>
+        <section class="section-block">
+          <section class="panel-card">
+            <div class="panel-head"><h3>Neraca Saldo</h3></div>
+            <div id="trial-balance-table"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="auth-backdrop hidden" id="auth-modal-backdrop">
+    <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+      <span class="meta-chip">Login Google</span>
+      <h3 id="auth-modal-title">Masuk untuk membuka aplikasi</h3>
+      <p id="auth-modal-message">Gunakan akun Google agar akses aplikasi lebih terkontrol di GitHub Pages.</p>
+      <div class="auth-status-box" id="auth-status-box">Status autentikasi sedang disiapkan...</div>
+      <div class="auth-actions">
+        <button type="button" class="google-login-btn" id="btn-login-google">Masuk dengan Google</button>
+        <button type="button" class="ghost-action-btn hidden" id="btn-auth-continue-local">Lanjutkan tanpa login</button>
+      </div>
+      <p class="auth-footnote">Catatan: login dan sinkronisasi cloud akan aktif setelah <code>firebase-config.js</code> diisi, provider Google dinyalakan, dan Cloud Firestore dibuat di project Firebase milikmu.</p>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="confirm-modal-backdrop">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+      <div class="warning-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z" /><path d="M12 9v5" /><path d="M12 18h.01" /></svg>
+      </div>
+      <h3 id="confirm-title">Konfirmasi</h3>
+      <p id="confirm-message">Apakah Anda yakin?</p>
+      <div class="modal-actions">
+        <button type="button" class="modal-btn cancel" id="confirm-cancel">Batal</button>
+        <button type="button" class="modal-btn confirm" id="confirm-accept">Ya, lanjutkan</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-stack" id="toast-stack"></div>
+</body>
+</html>
